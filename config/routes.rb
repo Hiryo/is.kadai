@@ -1,3 +1,10 @@
 Rails.application.routes.draw do
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  root 'users#new'
+  resources :sessions, only: [:new, :create, :destroy]
+  resources :users, only: [:new, :create, :show]
+  resources :favorites, only: [:index, :create, :destroy]
+  resources :picture_blogs do
+    collection do
+      post :confirm
+  end
 end
