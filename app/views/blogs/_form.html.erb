@@ -1,0 +1,28 @@
+<%= form_with(model: @blog, local: true) do |f| %>
+  <% if blog.errors.any? %>
+    <div id="error_explanation" >
+      <h2><%= @blog.errors.count %>errors</h2>
+      <ul>
+      <%= @blog.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+    <div class="blog_title">
+      <%= form.label :title %>
+      <%= f.text_field :title %>
+    </div>
+    <div class="blog_title">
+      <%= f.label :content %>
+      <%= f.text_field :content %>
+    </div>
+    <div class="blog_title">
+      <%= f.label :image %>
+      <%= f.file_field :image %>
+      <%= f.hidden_field :image_cache %>
+    </div>
+  <%= f.submit %>
+<% end %>
+
+<%= link_to "一覧に戻る", blogs_path %>

@@ -1,0 +1,19 @@
+<%= link_to '新規投稿', new_blog_path %>
+<p><%= notice %></p>
+<table>
+  <tr>
+    <th>タイトル</th>
+    <th>内容</th>
+    <th>投稿者</th>
+    <th>画像</th>
+  </tr>
+  <p><% @blogs.each do |blog| %></p>
+  <tr>
+    <td><%= blog.title %></td>
+    <td><%= blog.content %></td>
+    <td><%= blog.user.name %></td>
+    <td><%= image_tag blog.image.url if blog.image && blog.image.url %></td>
+    <td><%= link_to '詳細を確認する', blog_path(blog.id) %></td>
+  </tr>
+<% end %>
+</table>

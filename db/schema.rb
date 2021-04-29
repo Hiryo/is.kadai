@@ -15,22 +15,22 @@ ActiveRecord::Schema.define(version: 2021_04_28_023343) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "favorites", force: :cascade do |t|
-    t.integer "user_id"
-    t.string "picture_blog_id"
-    t.string "integer"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "picture_blogs", force: :cascade do |t|
+  create_table "blogs", force: :cascade do |t|
     t.string "title"
     t.text "content"
     t.text "image"
     t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["user_id"], name: "index_picture_blogs_on_user_id"
+    t.index ["user_id"], name: "index_blogs_on_user_id"
+  end
+
+  create_table "favorites", force: :cascade do |t|
+    t.integer "user_id"
+    t.string "blog_id"
+    t.string "integer"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "users", force: :cascade do |t|
@@ -43,5 +43,5 @@ ActiveRecord::Schema.define(version: 2021_04_28_023343) do
     t.index ["email"], name: "index_users_on_email", unique: true
   end
 
-  add_foreign_key "picture_blogs", "users"
+  add_foreign_key "blogs", "users"
 end
