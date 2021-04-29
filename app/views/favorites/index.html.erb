@@ -1,2 +1,17 @@
-<h1>Favorites#index</h1>
-<p>Find me in app/views/favorites/index.html.erb</p>
+<h1>Favorites</h1>
+<% if @favorites.empty? %>
+      <h2>Nothing your favorites</h2>
+    <% else %>
+      <h2>Favorites</h2>
+      <tr>
+        <th>Picture</th>
+      </tr>
+    <% end %>
+
+  <% @favorites.each do |f| %>
+    <tr>
+      <td><%= image_tag  %></td>
+    </tr>
+  <% end %>
+  </table>
+<%= link_to "一覧へ", blogs_path%>

@@ -1,2 +1,20 @@
 <h1><%= @user.name %>'s page</h1>
 <p>Mail address: <%= @user.email %></p>
+<table>
+  <% if @favorites.empty? %>
+    <h2>Nothing your favorites</h2>
+  <% else %>
+    <h2>Favorites</h2>
+    <tr>
+      <th>Author</th>
+    </tr>
+  <% end %>
+
+  <% @favorites.each do |f| %>
+    <tr>
+      <td><%= f.blog.user.name %></td>
+    </tr>
+  <% end %>
+</table>
+<%= link_to "To favorites", favorites_path %>
+<%= link_to "To lists", blogs_path %>

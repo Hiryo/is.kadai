@@ -1,14 +1,14 @@
-<h3>以下の内容で送信する。</h3>
+<h3>Sending contents below </h3>
 <%= form_with(model: @blog, url: blogs_path, local: true) do |f| %>
   <%= f.hidden_field :title %>
   <%= f.hidden_field :content %>
   <%= image_tag(@blog.image.url) if @picture.image && @picture.image.url %>
   <%= f.hidden_field :image_caache %>
   <%= f.hidden_field :name %>
-  <p>タイトル:<%= @blog.title %></p>
-  <p>本文:<%= @blog.content %></p>
-  <p>キャッシュ:<%= @blog.image_cache %></p>
-  <p>投稿者:<%= @blog.user.name %></p>
-  <%= f.submit "登録" %>
-    <%= f.submit "戻る", name: 'back' %>
+  <p>Title:<%= @blog.title %></p>
+  <p>Content:<%= @blog.content %></p>
+  <p>Cache:<%= @blog.image_cache %></p>
+  <p>Author:<%= @blog.user.name %></p>
+  <%= f.submit "Additional" %>
+    <%= f.submit "Return", name: 'back' %>
 <% end %>

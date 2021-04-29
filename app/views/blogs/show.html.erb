@@ -1,20 +1,20 @@
-<h1>投稿</h1>
-<p>タイトル: <%= @blog.title %></p>
-<p>内容: <%= @blog.content %></p>
-<p>投稿者: <%= @blog.user.name %></p>
+<h1>Post</h1>
+<p>Title: <%= @blog.title %></p>
+<p>Content: <%= @blog.content %></p>
+<p>Author: <%= @blog.user.name %></p>
 
 <p id="notice"><%= notice %></p>
 <p><%= image_tag @blog.image.url if @picture.image.present? %></p>
 <% if @picture_.user_id == current_user.id %>
-  <%= link_to '編集', edit_blog_path(@blog) %>
-  <%= link_to '削除', blog_path(@blog), method: :delete ,data: { confirm: '消します？' } %>
+  <%= link_to 'Edit', edit_blog_path(@blog) %>
+  <%= link_to 'Delete', blog_path(@blog), method: :delete ,data: { confirm: 'Delete？' } %>
 <% end %>
 <% unless @blog.user_id == current_user.id %>
   <% if @favorite.present? %>
-    <%= link_to 'お気に入り解除', favorite_path(id: @favorite.id), method: :delete, class: 'btn btn_danger' %>
+    <%= link_to 'Delete', favorite_path(id: @favorite.id), method: :delete, class: 'btn btn_danger' %>
   <% else %>
-    <%= link_to 'お気に入り', favorites_path(blog_id: @picture.id), method: :post, class: 'btn btn-prymary' %>
+    <%= link_to 'To favorites', favorites_path(blog_id: @picture.id), method: :post, class: 'btn btn-pry mary' %>
   <% end %>
 <% end %>
 
-<p><%= link_to "一覧に戻る", blogs_path %></p>
+<p><%= link_to "To lists", blogs_path %></p>
