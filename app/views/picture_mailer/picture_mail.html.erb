@@ -1,0 +1,4 @@
+<h1>Your post is complete</h1>
+<h4>Author: <%= @blog.user.name %></h4>
+<h4>Confirmation of post information</h4>
+<p>image: <%= image_tag(@blog.image.url) if @blog.image && @blog.image.url %></p>

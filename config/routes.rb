@@ -1,8 +1,6 @@
 Rails.application.routes.draw do
-  get 'contacts/name:string'
-  get 'contacts/email:string'
-  get 'contacts/content:text'
   root 'users#new'
+  mount LetterOpenerWeb::Engine, at: "/letter_opener" if Rails.env.development?
   resources :sessions, only: [:new, :create, :destroy]
   resources :users, only: [:new, :create, :show]
   resources :favorites, only: [:index, :create, :destroy]

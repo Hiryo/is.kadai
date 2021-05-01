@@ -14,6 +14,7 @@ class BlogsController < ApplicationController
       render :new
     else
       if @blog.save
+        PictureMailer.picture_mail(@blog).deliver
         redirect_to blogs_path, notice: "Sending"
       else
         render :new
