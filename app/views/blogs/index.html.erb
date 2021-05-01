@@ -1,23 +1,40 @@
 <%= link_to 'New post', new_blog_path %>
 <p><%= notice %></p>
-<table>
-  <div class ="container">
+<p><% @blogs.each do |blog| %></p>
 
-  <tr>
-    <th>Title</th>
-    <th>Content</th>
-    <th>Author</th>
-    <th>Picture</th>
-  </tr>
-  <p><% @blogs.each do |blog| %></p>
-  <tr>
-    <td><%= blog.title %></td>
-    <td><%= blog.content %></td>
-    <td><%= blog.user.name %></td>
-    <td><%= image_tag blog.image.url if blog.image && blog.image.url %></td>
+  <table>
+    <div class="container">
+    <p><tr>
+        <th>Title</th>
+      </tr>
+      <tr>
+        <td><%= blog.title %></td>
+    </tr></p>
+    <p><tr>
+        <th>Content</th>
+      </tr>
+      <tr>
+        <td><%= blog.content %></td>
+    </tr></p>
+    <p><tr>
+        <th>Author</th>
+      </tr>
+      <tr>
+        <td><%= blog.user.name %></td>
+    </tr></p>
+    <p><tr>
+        <th>Picture</th>
+      </tr>
+      <tr>
+        <td><%= image_tag blog.image.url if blog.image && blog.image.url %></td>
+    </tr></p>
+    <tr>
     <td><%= link_to 'Show details', blog_path(blog.id) %></td>
-  </tr>
-</div>
-<% end %>
+  </tr></div>
+
 </table>
+
+
+<% end %>
+
 

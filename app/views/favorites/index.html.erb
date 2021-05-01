@@ -1,28 +1,26 @@
 <h1>Favorites</h1>
-<div class="container">
 <% @favorites.each do |favorite| %>
-  <table>
-    
-      
-   
-    <tr>
-  <th>Title</th>
-</tr>
-<tr>
-  <td><%= favorite.user.name %></td>
-</tr>
-<tr>
-  <th>Content</th>
-</tr>
-<tr>
-  <td><%= favorite.blog.content %></td>
-</tr>
-
-<tr>
+<p><tr>
+    <th>Name</th>
+  </tr>
+  <tr>
+    <td><%= favorite.user.name %></td>
+</tr></p>
+<p><tr>
+    <th>Title</th>
+  </tr>
+  <tr>
+    <td><%= favorite.blog.title %></td>
+</tr></p>
+<p><tr>
+    <th>Content</th>
+  </tr>
+  <tr>
+    <td><%= favorite.blog.content %></td>
+</tr></p>
+<p><tr>
   <td><%= image_tag(favorite.blog.image.url) %></td>
-</tr>
-</table>
-
+</tr></p>
 <% end %>
-</div>
+
 <%= link_to "To lists", blogs_path%>
