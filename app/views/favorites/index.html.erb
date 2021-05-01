@@ -10,7 +10,7 @@
 
   <% @favorites.each do |f| %>
     <tr>
-      <td><%= image_tag  %></td>
+      <td><%= image_tag(@f.image.url) if @f.image && @f.image.url %></td>
     </tr>
   <% end %>
   </table>

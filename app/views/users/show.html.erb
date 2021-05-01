@@ -1,20 +1,17 @@
+<%= form_with(model: @user, local: true) do |f| %>
 <h1><%= @user.name %>'s page</h1>
 <p>Mail address: <%= @user.email %></p>
-<table>
-  <% if @favorites.empty? %>
-    <h2>Nothing your favorites</h2>
+  <% if @user.image.url %>
+    <p>image: <%= image_tag(@user.image.url) %></p>
   <% else %>
-    <h2>Favorites</h2>
-    <tr>
-      <th>Author</th>
-    </tr>
+    <%= f.file_field :image %>
+    <%= f.submit "image" %>
+    <% end %>
   <% end %>
 
-  <% @favorites.each do |f| %>
-    <tr>
-      <td><%= f.blog.user.name %></td>
-    </tr>
-  <% end %>
-</table>
+<p id="notice"><%= notice %></p>
+
+<%= link_to 'Edit', edit_user_path(@user) %>
+
 <%= link_to "To favorites", favorites_path %>
 <%= link_to "To lists", blogs_path %>
