@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  get 'contacts/name:string'
+  get 'contacts/email:string'
+  get 'contacts/content:text'
   root 'users#new'
   resources :sessions, only: [:new, :create, :destroy]
   resources :users, only: [:new, :create, :show]

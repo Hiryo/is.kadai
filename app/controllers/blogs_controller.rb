@@ -1,11 +1,11 @@
 class BlogsController < ApplicationController
-  before_action : :set_blog, only: [:show, :edit, :update, :destroy]
+  before_action :set_blog, only: [:show, :edit, :update, :destroy]
   def new
-    @blogs = Blog.new
+    @blog = Blog.new
   end
 
   def index
-    @blog = Blog.all
+    @blogs = Blog.all
   end
 
   def create
@@ -52,6 +52,6 @@ class BlogsController < ApplicationController
   end
 
   def set_blog
-    @blog = Blog.find(params.require[:id])
+    @blog = Blog.find(params[:id])
   end
 end
