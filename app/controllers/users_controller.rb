@@ -16,16 +16,16 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    @favorites = current_user.favorites.all
   end
 
   def edit
-    @user = User.find(current_user.id)
+    @user = User.find(params[:id])
   end
 
   def update
     @user = User.find(current_user.id)
-    if @user.update(user_params)
+    if @user.update_attributes(user_params)
+      flash[:success] = "Update"
       redirect_to user_path(@user.id)
     else
       render :edit

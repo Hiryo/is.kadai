@@ -1,17 +1,9 @@
-<%= form_with(model: @user, local: true) do |f| %>
 <h1><%= @user.name %>'s page</h1>
 <p>Mail address: <%= @user.email %></p>
-  <% if @user.image.url %>
-    <p>image: <%= image_tag(@user.image.url) %></p>
-  <% else %>
-    <%= f.file_field :image %>
-    <%= f.submit "image" %>
-    <% end %>
+  <% if @user.image? %>
+  <p><%= image_tag @user.image.url if @user.image.present? %></p>
   <% end %>
 
-<p id="notice"><%= notice %></p>
-
-<%= link_to 'Edit', edit_user_path(@user) %>
-
+<%= link_to 'Edit', edit_user_path(current_user.id) %>
 <%= link_to "To favorites", favorites_path %>
 <%= link_to "To lists", blogs_path %>

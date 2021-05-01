@@ -1,6 +1,8 @@
 <%= link_to 'New post', new_blog_path %>
 <p><%= notice %></p>
 <table>
+  <div class ="container">
+
   <tr>
     <th>Title</th>
     <th>Content</th>
@@ -15,5 +17,7 @@
     <td><%= image_tag blog.image.url if blog.image && blog.image.url %></td>
     <td><%= link_to 'Show details', blog_path(blog.id) %></td>
   </tr>
+</div>
 <% end %>
 </table>
+

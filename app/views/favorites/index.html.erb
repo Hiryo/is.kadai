@@ -1,17 +1,28 @@
 <h1>Favorites</h1>
-<% if @favorites.empty? %>
-      <h2>Nothing your favorites</h2>
-    <% else %>
-      <h2>Favorites</h2>
-      <tr>
-        <th>Picture</th>
-      </tr>
-    <% end %>
-
-  <% @favorites.each do |f| %>
+<div class="container">
+<% @favorites.each do |favorite| %>
+  <table>
+    
+      
+   
     <tr>
-      <td><%= image_tag(@f.image.url) if @f.image && @f.image.url %></td>
-    </tr>
-  <% end %>
-  </table>
+  <th>Title</th>
+</tr>
+<tr>
+  <td><%= favorite.user.name %></td>
+</tr>
+<tr>
+  <th>Content</th>
+</tr>
+<tr>
+  <td><%= favorite.blog.content %></td>
+</tr>
+
+<tr>
+  <td><%= image_tag(favorite.blog.image.url) %></td>
+</tr>
+</table>
+
+<% end %>
+</div>
 <%= link_to "To lists", blogs_path%>
